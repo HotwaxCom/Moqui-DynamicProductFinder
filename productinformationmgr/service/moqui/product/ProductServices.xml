@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchema="http://moqui.org/xml-service-definition.xml">
+    <service verb="fetch" noun="Product">
+        <in-parameters>
+            <parameter name="productId" entity-name="productinfo.product.Product"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productList" type="List"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="productinfo.product.Product" list="productList">
+                <econdition field-name="productId"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <service verb="delete" noun="Product">
+        <in-parameters>
+            <parameter name="productId" required="true" entity-name="productinfo.product.Product"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="productId"/>
+        </out-parameters>
+        <actions>
+            <!-- Find the Product record -->
+            <entity-find-one value-field="product" entity-name="productinfo.product.Product">
+                <econdition field-name="productId" value="productId"/>
+            </entity-find-one>
+
+            <entity-delete-related value-field="product" relationship-name="content"/>
+
+            <entity-delete-related value-field="product" relationship-name="price"/>
+
+            <entity-delete-related value-field="product" relationship-name="dimension"/>
+
+            <entity-delete-related value-field="product" relationship-name="assoc"/>
+            <entity-delete-related value-field="product" relationship-name="toassoc"/>
+
+            <entity-delete-related value-field="product" relationship-name="features"/>
+
+            <entity-delete-related value-field="product" relationship-name="category"/>
+
+            <entity-delete value-field="product"/>
+        </actions>
+    </service>
+
+    <service verb="fetch" noun="ProductContent">
+        <in-parameters>
+            <parameter name="productId" entity-name="productinfo.productcontent.ProductContent"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="contentList" type="List"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="productinfo.productcontent.ProductContent" list="contentList">
+                <econdition field-name="productId"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <service verb="fetch" noun="ProductPrice">
+        <in-parameters>
+            <parameter name="productId" entity-name="productinfo.productprice.ProductPrice"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="priceList" required="true"/>
+        </out-parameters>
+        <actions>
+            <entity-find entity-name="productinfo.productprice.ProductPrice" list="priceList">
+                <econdition field-name="productId"/>
+            </entity-find>
+        </actions>
+    </service>
+
+    <service verb="fetch" noun="ProductDimension">
+        <in-parameters>
+            <parameter name="productId" entity-name="productinfo.productdimension.ProductDimension"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="dimensionList" type="List"/>
+        </out-parameters>
+        <actions>
+            
+            <entity-find entity-name="productinfo.productdimension.ProductDimension" list="dimensionList">
+                <econdition field-name="productId"/>
+            </entity-find>
+        </actions>
+    </service>
+</services>
