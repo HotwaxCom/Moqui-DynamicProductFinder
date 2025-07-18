@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchema="http://moqui.org/xml-screen-3.xsd" require-authentication="anonymous-all">
-<!--    Transition to different pages -->
+    <!--    Transition to different pages -->
     <transition name="productContent">
         <default-response url="../productContent"/>
     </transition>
@@ -12,7 +12,7 @@
     </transition>
 
     <actions>
-        <log message="====${productId}===="/>
+        <log message="+++++++++++++${productId}++++++++++++"/>
         <service-call name="moqui.product.ProductServices.fetch#Product" in-map="[productId:productId]" out-map="context"/>
     </actions>
 
@@ -48,33 +48,47 @@
             </box-body-nopad>
         </container-box>
 
-<!--        Displaying the product details-->
+        <!--        Displaying the product details-->
         <container-box>
             <box-header title="Product Details"/>
             <box-body-nopad>
-            <form-list name="ProductList" list="productList">
-                <field name="productId">
-                    <default-field><display/></default-field>
-                </field>
-                <field name="productName">
-                    <default-field><display/></default-field>
-                </field>
-                <field name="productTypeEnumId">
-                    <default-field><display/></default-field>
-                </field>
-                <field name="isVarient">
-                    <default-field><display/></default-field>
-                </field>
-                <field name="isVirtual">
-                    <default-field><display/></default-field>
-                </field>
-                <field name="fromDate">
-                    <default-field><display/></default-field>
-                </field>
-                <field name="thruDate">
-                    <default-field><display/></default-field>
-                </field>
-            </form-list>
+                <form-list name="ProductList" list="productList">
+                    <field name="productId">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
+                    <field name="productName">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
+                    <field name="productTypeEnumId">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
+                    <field name="isVarient">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
+                    <field name="isVirtual">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
+                    <field name="fromDate">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
+                    <field name="thruDate">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
+                </form-list>
             </box-body-nopad>
         </container-box>
 
@@ -120,10 +134,14 @@
                         </default-field>
                     </field>
                     <field name="fromDate">
-                        <default-field><text-line/></default-field>
+                        <default-field>
+                            <text-line/>
+                        </default-field>
                     </field>
                     <field name="thruDate">
-                        <default-field><text-line/></default-field>
+                        <default-field>
+                            <text-line/>
+                        </default-field>
                     </field>
                     <field name="createProductButton">
                         <default-field title="CreateProduct">
@@ -140,10 +158,14 @@
             <box-body-nopad>
                 <form-list name="UpdateForm" list="productList" transition="updateProduct">
                     <field name="productId">
-                        <default-field><display/></default-field>
+                        <default-field>
+                            <display/>
+                        </default-field>
                     </field>
                     <field name="productName">
-                        <default-field><text-line/></default-field>
+                        <default-field>
+                            <text-line/>
+                        </default-field>
                     </field>
                     <field name="productTypeEnumId">
                         <default-field>
@@ -158,16 +180,24 @@
                         </default-field>
                     </field>
                     <field name="isVarient">
-                        <default-field><text-line/></default-field>
+                        <default-field>
+                            <text-line/>
+                        </default-field>
                     </field>
                     <field name="isVirtual">
-                        <default-field><text-line/></default-field>
+                        <default-field>
+                            <text-line/>
+                        </default-field>
                     </field>
                     <field name="fromDate">
-                        <default-field><text-line/></default-field>
+                        <default-field>
+                            <text-line/>
+                        </default-field>
                     </field>
                     <field name="thruDate">
-                        <default-field><text-line/></default-field>
+                        <default-field>
+                            <text-line/>
+                        </default-field>
                     </field>
                     <field name="updateButton">
                         <default-field>
@@ -184,25 +214,39 @@
             <box-body-nopad>
                 <form-list name="DeleteForm" list="productList" transition="deleteProduct">
                     <field name="productId">
-                        <default-field><display/></default-field>
+                        <default-field>
+                            <display/>
+                        </default-field>
                     </field>
                     <field name="productName">
-                        <default-field><display/></default-field>
+                        <default-field>
+                            <display/>
+                        </default-field>
                     </field>
                     <field name="productTypeEnumId">
-                        <default-field><display/></default-field>
+                        <default-field>
+                            <display/>
+                        </default-field>
                     </field>
                     <field name="isVarient">
-                        <default-field><display/></default-field>
+                        <default-field>
+                            <display/>
+                        </default-field>
                     </field>
                     <field name="isVirtual">
-                        <default-field><display/></default-field>
+                        <default-field>
+                            <display/>
+                        </default-field>
                     </field>
                     <field name="fromDate">
-                        <default-field><display/></default-field>
+                        <default-field>
+                            <display/>
+                        </default-field>
                     </field>
                     <field name="thruDate">
-                        <default-field><display/></default-field>
+                        <default-field>
+                            <display/>
+                        </default-field>
                     </field>
                     <field name="deleteButton">
                         <default-field>
@@ -217,6 +261,11 @@
             <box-header title="Get Product Content"/>
             <box-body-nopad>
                 <form-list name="GetProductContent" transition="productContent" list="productList">
+                    <field name="productId">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
                     <field name="getProductContent">
                         <default-field >
                             <submit/>
@@ -230,6 +279,11 @@
             <box-header title="Get Product Price"/>
             <box-body-nopad>
                 <form-list list="productList" name="GetProdcuctPrice" transition="productPrice">
+                    <field name="productId">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
                     <field name="submitButton">
                         <default-field title="GetProductPrice">
                             <submit/>
@@ -243,6 +297,11 @@
             <box-header title="Get Product Dimension"/>
             <box-body-nopad>
                 <form-list list="productList" name="GetProdcuctDimension" transition="productDimension">
+                    <field name="productId">
+                        <default-field>
+                            <display/>
+                        </default-field>
+                    </field>
                     <field name="submitButton">
                         <default-field title="GetProductDimension">
                             <submit/>
@@ -252,6 +311,6 @@
             </box-body-nopad>
         </container-box>
 
-<!--        <subscreens-active id="productContent"/>-->
+        <!--        <subscreens-active id="productContent"/>-->
     </widgets>
 </screen>
